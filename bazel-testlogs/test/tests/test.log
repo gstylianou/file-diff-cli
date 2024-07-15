@@ -1,0 +1,16 @@
+Executing tests from //test:tests
+-----------------------------------------------------------------------------
+failed to open file with error [Errno 2] No such file or directory: 'C:\\Users\\gstyl\\AppData\\Local\\Temp\\Bazel.runfiles_p6wqfhbs\\runfiles\\_main\\test-file1.txt'
+failed to open file with error [Errno 2] No such file or directory: 'C:\\Users\\gstyl\\AppData\\Local\\Temp\\Bazel.runfiles_p6wqfhbs\\runfiles\\_main\\test-file2.txt'
+one of the files is not found or is empty
+.failed to open file with error [Errno 2] No such file or directory: 'C:\\Users\\gstyl\\AppData\\Local\\Temp\\Bazel.runfiles_p6wqfhbs\\runfiles\\_main\\test-file1.txt'
+failed to open file with error [Errno 2] No such file or directory: 'C:\\Users\\gstyl\\AppData\\Local\\Temp\\Bazel.runfiles_p6wqfhbs\\runfiles\\_main\\test-file2.txt'
+one of the files is not found or is empty
+.failed to open file with error [Errno 2] No such file or directory: 'C:\\Users\\gstyl\\AppData\\Local\\Temp\\Bazel.runfiles_p6wqfhbs\\runfiles\\_main\\test-file1.txt'
+failed to open file with error [Errno 2] No such file or directory: 'C:\\Users\\gstyl\\AppData\\Local\\Temp\\Bazel.runfiles_p6wqfhbs\\runfiles\\_main\\test-file2.txt'
+one of the files is not found or is empty
+.
+----------------------------------------------------------------------
+Ran 3 tests in 0.138s
+
+OK

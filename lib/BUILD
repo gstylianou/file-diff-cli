@@ -5,6 +5,7 @@ py_library(
         "file_compare.py",
         "line_compare.py",
         "utilities.py",
+        "file_compare_thread.py",
     ],
     visibility=["//main:__pkg__", "//test:__pkg__"],
 )

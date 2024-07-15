@@ -1,5 +1,10 @@
+
 py_test(
-    name = "file_diff_test",
-    srcs = ["file_diff_test.py"],
-   deps = ["//lib:file_diff"]
+    name="tests",
+    srcs=["tests.py"],
+    deps=["//main:main"],
+    data=[
+        "test-file1.txt",
+        "test-file2.txt",
+    ],
 )
