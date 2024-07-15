@@ -1,3 +1,4 @@
 bazel-bin
 bazel-out
 .mypy_cache
+bazel-file-diff-cli

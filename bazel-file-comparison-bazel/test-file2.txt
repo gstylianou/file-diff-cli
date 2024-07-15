@@ -1,3 +1,0 @@
-test abcd file with diff and diff another
-test abcd file with diff and diff another
-test abcd file with diff and diff another
