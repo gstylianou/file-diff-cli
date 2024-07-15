@@ -1,0 +1,3 @@
+bazel-bin
+bazel-out
+.mypy_cache
