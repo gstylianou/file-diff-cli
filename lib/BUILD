@@ -1,7 +1,6 @@
 py_library(
     name="lib_files",
-    srcs=[
-        "file_diff.py",
+    srcs=[       
         "file_reader.py",
         "file_compare.py",
         "line_compare.py",

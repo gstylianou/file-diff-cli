@@ -1,12 +1,13 @@
-from rich import print
-from lib import file_reader, file_compare
 import os
 import sys
 
+from rich import print
+
+from lib import file_compare, file_reader
+
 
 def main(argv):
-    # print(f'Arguments passed: {argv} as {type(argv)}')
-
+    """main"""
     fr1 = file_reader.FileReader(os.path.realpath(argv[0]))
     file1 = fr1.read()
     fr2 = file_reader.FileReader(os.path.realpath(argv[1]))

@@ -1,15 +1,16 @@
-from lib import line_compare as lc
+from lib import line_compare
 from lib import utilities as util
 
 
 class FileCompare:
     def compare(self, file1, file2):
+        '''compare two files'''
         min_length = min(len(file1), len(file2))
         file1_new = []
         file2_new = []
-        lcO = lc.LineCompare()
+        lc = line_compare.LineCompare()
         for i in range(min_length):
-            line1, line2 = lcO.lineCompare_words(file1[i], file2[i])
+            line1, line2 = lc.line_compare(file1[i], file2[i])
             file1_new.append(line1)
             file2_new.append(line2)
 
@@ -25,6 +26,3 @@ class FileCompare:
             ]
 
         return file1_new, file2_new
-
-        # line1 = Text(line1,style="on red")
-        # line2 = Text(line2,style="on blue")
