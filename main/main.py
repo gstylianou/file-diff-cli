@@ -23,14 +23,6 @@ def main(argv):
     for item in file2:
         print(item)
 
-    fc_thread = file_compare_thread.FileCompare()
-    file1_1, file2_1 = fc_thread.compare(file1, file2)
-    for item in file1:
-        print(item)
-    for item in file2:
-        print(item)
-
-
 if __name__ == "__main__":
     main(sys.argv[1:])
 
