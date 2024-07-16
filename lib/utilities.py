@@ -1,3 +1,5 @@
+import asyncio
+
 def split_line_at_three(line, start_index, length):
     line_left = line[:start_index]
     line_mid = line[start_index: start_index + length]
@@ -24,3 +26,9 @@ def color_diff_for_line(line, start_index, length, color):
         [line_left, "[bold ", color, "]", line_mid, "[/bold ", color, "]", line_right]
     )
     return line
+
+
+async def map_async(func, iterable1, iterable2):
+    tasks = [func(x, y) for x, y in zip(iterable1, iterable2)]
+    results = await asyncio.gather(*tasks)
+    return results

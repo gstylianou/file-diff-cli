@@ -1,12 +1,14 @@
 import os
 import sys
+import asyncio
 
 from rich import print
 
-from lib import file_compare, file_reader, file_compare_thread
+from lib import file_compare, file_reader
+from lib import file_compare_async
 
 
-def main(argv):
+async def main(argv):
     """main"""
     fr1 = file_reader.FileReader(os.path.realpath(argv[0]))
     file1 = fr1.read()
@@ -16,23 +18,18 @@ def main(argv):
     if len(file1) == 0 or len(file2) == 0:
         print("one of the files is not found or is empty")
         return
-    fc = file_compare.FileCompare()
-    file1, file2 = fc.compare(file1, file2)
+    fc = file_compare_async.FileCompareAsync()
+    file1, file2 = await fc.compare_async(file1, file2)
     for item in file1:
         print(item)
     for item in file2:
         print(item)
 
-    fc_thread = file_compare_thread.FileCompare()
-    file1_1, file2_1 = fc_thread.compare(file1, file2)
-    for item in file1:
-        print(item)
-    for item in file2:
-        print(item)
+  
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    asyncio.run(main(sys.argv[1:]))
 
 # todo
 # diff when file1 has more lines than file2
