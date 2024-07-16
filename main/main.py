@@ -33,8 +33,8 @@ async def main(argv):
 
     elapsed_time_ms = (end_time - start_time)*1000
 
-    for item in file1:
-        print(item)
+    # for item in file1:
+    #     print(item)
     # for item in file2:
     #     print(item)
     print(f"Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")

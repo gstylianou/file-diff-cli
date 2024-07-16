@@ -10,10 +10,10 @@ class ChunkCompareAsync:
         file1_new = []
         file2_new = []
         lc = line_compare.LineCompare()
-        print('start/end',chunk_index * chunk_size, (chunk_index + 1) * chunk_size)   
+        print("start/end", chunk_index * chunk_size, (chunk_index + 1) * chunk_size)
         for i in range(chunk_index * chunk_size, (chunk_index + 1) * chunk_size):
             line1, line2 = lc.line_compare(file1[i], file2[i])
             file1_new.append(line1)
             file2_new.append(line2)
-        
+
         return file1_new, file2_new
