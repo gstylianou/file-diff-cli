@@ -1,7 +1,7 @@
 import os
 import sys
 import asyncio
-
+import time
 from rich import print
 
 from lib import file_compare, file_reader
@@ -19,11 +19,18 @@ async def main(argv):
         print("one of the files is not found or is empty")
         return
     fc = file_compare_async.FileCompareAsync()
+    start_time = time.time()
     file1, file2 = await fc.compare_async(file1, file2)
-    for item in file1:
-        print(item)
-    for item in file2:
-        print(item)
+    end_time = time.time()
+
+    elapsed_time_ms = (end_time - start_time)*1000
+
+    print(f"Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")
+
+    # for item in file1:
+    #     print(item)
+    # for item in file2:
+    #     print(item)
 
   
 
