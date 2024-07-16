@@ -23,6 +23,7 @@ def main(argv):
     for item in file2:
         print(item)
 
+
 if __name__ == "__main__":
     main(sys.argv[1:])
 
