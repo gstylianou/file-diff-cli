@@ -9,11 +9,19 @@ from lib import file_compare_async
 
 
 async def main(argv):
-    """main"""
+    start_time = time.time()
     fr1 = file_reader.FileReader(os.path.realpath(argv[0]))
     file1 = fr1.read()
+    end_time = time.time()
+    elapsed_time_ms = (end_time - start_time)*1000
+    print(f"Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")
+
+    start_time = time.time()
     fr2 = file_reader.FileReader(os.path.realpath(argv[1]))
     file2 = fr2.read()
+    end_time = time.time()
+    elapsed_time_ms = (end_time - start_time)*1000
+    print(f"Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")
 
     if len(file1) == 0 or len(file2) == 0:
         print("one of the files is not found or is empty")
@@ -25,12 +33,12 @@ async def main(argv):
 
     elapsed_time_ms = (end_time - start_time)*1000
 
-    print(f"Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")
-
-    # for item in file1:
-    #     print(item)
+    for item in file1:
+        print(item)
     # for item in file2:
     #     print(item)
+    print(f"Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")
+
 
   
 

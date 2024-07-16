@@ -7,6 +7,7 @@ py_library(
         "utilities.py",
         "file_compare_async.py",
         "line_compare_async.py",
+        "chunk_compare_async.py",
     ],
     visibility=["//main:__pkg__", "//test:__pkg__"],
 )
