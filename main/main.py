@@ -28,7 +28,7 @@ async def main(argv):
         return
     fc = file_compare_async.FileCompareAsync()
     start_time = time.time()
-    file1, file2 = await fc.compare_async(file1, file2)
+    file1, file2 = fc.compare_async(file1, file2)
     end_time = time.time()
 
     elapsed_time_ms = (end_time - start_time)*1000

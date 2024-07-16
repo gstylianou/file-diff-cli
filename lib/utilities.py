@@ -1,9 +1,31 @@
 import asyncio
+import threading
+
+
+def thread_decorator(func):
+    class ThreadedFunction(threading.Thread):
+        def __init__(self, *args, **kwargs):
+            # print("thread init")
+            super().__init__()
+            self.args = args
+            self.kwargs = kwargs
+            self.result = None
+
+        def run(self):
+            # print("thread is running")
+            self.result = func(*self.args, **self.kwargs)
+        
+        # def join(self):
+        #     # print('join is called')
+        #     super().join()
+
+    return ThreadedFunction
+
 
 def split_line_at_three(line, start_index, length):
     line_left = line[:start_index]
-    line_mid = line[start_index: start_index + length]
-    line_right = line[start_index + length:]
+    line_mid = line[start_index : start_index + length]
+    line_right = line[start_index + length :]
     return line_left, line_mid, line_right
 
 
