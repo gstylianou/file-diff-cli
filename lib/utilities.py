@@ -1,5 +1,22 @@
 import asyncio
 import threading
+import multiprocessing
+
+
+def multiprocessing_decorator_with_queue(func):
+    def wrapper(*args, **kwargs):
+        queue = multiprocessing.Queue()
+        process = multiprocessing.Process(target=func, args=(queue,) + args, kwargs=kwargs)
+        process.start()
+        return process, queue
+    return wrapper
+
+def process_decorator(func):
+    def wrapper(*args, **kwargs):
+        process = multiprocessing.Process(target=func, args=args, kwargs=kwargs)
+        process.start()
+        return process
+    return wrapper
 
 
 def thread_decorator(func):
@@ -14,7 +31,7 @@ def thread_decorator(func):
         def run(self):
             # print("thread is running")
             self.result = func(*self.args, **self.kwargs)
-        
+
         # def join(self):
         #     # print('join is called')
         #     super().join()

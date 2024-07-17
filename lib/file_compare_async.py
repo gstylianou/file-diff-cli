@@ -3,6 +3,7 @@ from lib import line_compare_async, line_compare, chunk_compare_async
 import asyncio
 import functools
 import time
+import multiprocessing
 
 
 class FileCompareAsync:
@@ -15,28 +16,31 @@ class FileCompareAsync:
         file1_new = []
         file2_new = []
 
-        num_chunks = 10
+        num_chunks = 20
         step = int(min_length / num_chunks)
 
         start_time = time.time()
 
         threads = []
-
-        for i in range(0, num_chunks):
-            t = chunk_compare_async.compare_async1(file1, file2, i, step)
+        i=0
+        with multiprocessing.Pool(processes=num_chunks) as pool:
+            t = pool.apply_async(chunk_compare_async.compare_async1, args=(file1, file2, i, step))
             threads.append(t)
-            t.start()
-
-        [n.join() for n in threads]
-
+            i=i+1
+            # t = chunk_compare_async.compare_async1(file1, file2, i, step)
+            # t = multiprocessing.Process(target=chunk_compare_async.compare_async1, args=(file1, file2, i, step))
+            # threads.append(t)
+            # t.start()
+       
+        output = [result.get() for result in threads]
+        print(output)
+        # [n.join() for n in threads]
+        print(type(threads),len(threads))
         end_time = time.time()
         elapsed_time_ms = (end_time - start_time) * 1000
         print(f"Thread Execution time: {elapsed_time_ms:.2f} milliseconds\n\n")
 
-        # print("result", threads[3].result[1])
-
-        for item in threads:
-            # print('item result',item.result)
+        for item in threads:           
             file1_new.extend(item.result[0])
             file2_new.extend(item.result[1])
 
